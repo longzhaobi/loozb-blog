@@ -1,0 +1,38 @@
+html, body
+{
+  background-color: #eee !important;
+  color: #2e2f30;
+  letter-spacing: 0.5px;
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  height: 100%;
+  margin: 0;
+}
+
+#__nuxt {
+  height:100%;
+}
+
+a, a:hover, a:focus, a:visited
+{
+  color: #41B883;
+  cursor:pointer;
+  text-decoration: none;
+}
+
+
+.page-enter-active, .page-leave-active
+{
+  transition: opacity .5s
+}
+.page-enter, .page-leave-active
+{
+  opacity: 0
+}
+
+.f-left {
+  float:left;
+}
+
+.f-right {
+  float:right;
+}
