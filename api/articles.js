@@ -1,5 +1,5 @@
 var router = require('express').Router()
-import request from '../request'
+var request = require('../request')
 
 /* 获取文章列表 */
 router.get('/articles', function (req, res, next) {

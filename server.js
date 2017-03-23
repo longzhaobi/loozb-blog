@@ -1,8 +1,7 @@
 const Nuxt = require('nuxt')
 const app = require('express')()
-const proxy = require('express-http-proxy');
-const host = process.env.HOST || '127.0.0.1'
-const port = process.env.PORT || 3000
+const host = process.env.HOST || '0.0.0.0'
+const port = process.env.PORT || 8080
 
 app.set('port', port)
 
