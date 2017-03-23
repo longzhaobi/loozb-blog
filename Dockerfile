@@ -10,7 +10,7 @@ COPY package.json /home/loozb-blog
 COPY utils.js /home/loozb-blog
 COPY server.prod.js /home/loozb-blog
 COPY request.js /home/loozb-blog
-COPY nuxt.confi.js /home/loozb-blog
+COPY nuxt.config.js /home/loozb-blog
 
 
 EXPOSE 8080
