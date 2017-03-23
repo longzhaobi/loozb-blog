@@ -1,4 +1,5 @@
 FROM nuxt/node
+ENV NODE_PATH /usr/local/node/lib/node_modules
 RUN mkdir -p /home/loozb-blog/.nuxt
 RUN mkdir -p /home/loozb-blog/api
 WORKDIR /home/loozb-blog
