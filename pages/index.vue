@@ -25,7 +25,7 @@
 </script>
 <template>
   <section class="my-container">
-    <nav-panel/>
+    <nav-panel />
     <article-list :page = "page"/>
   </section>
 </template>

@@ -2,7 +2,7 @@
   <article class="article my-article">
     <!-- <div class="aritcle-flag">原创</div> -->
     <header>
-      <h1 class="text-center">{{article.title}}</h1>
+      <h1 class="text-left">{{article.title}}</h1>
       <dl class="dl-inline">
         <dt>类型：</dt>
         <dd>{{article.type === '1' ? '原创' : '转载'}}</dd>
