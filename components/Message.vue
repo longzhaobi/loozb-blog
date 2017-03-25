@@ -1,7 +1,7 @@
 <template>
   <div class="loozb-tags">
     <div class="panel panel-default">
-      <div class="panel-heading">标签</div>
+      <div class="panel-heading">最新留言</div>
       <div class="panel-body panel-tags">
         <span class="label label-success">分库分表</span>
         <span class="label label-success">按需加载</span>
