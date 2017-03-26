@@ -3,22 +3,30 @@
     <div class="container">
       <div class="nav-panel">
         <div class="logo-panel">
-          <!-- <img src="../assets/img/logo.png" alt="Nuxt.js Logo" class="logo" /> -->
-          <img src="../assets/img/myself.jpg" class="img-rounded logo" alt="圆形图片">
+          <img v-if="classification" :src="classification.url" class="img-rounded logo" alt="圆形图片">
+          <img v-else src="../assets/img/myself.jpg" class="img-rounded logo" alt="圆形图片">
           <div class="logo-text">
-            <p>Long Zhao Bi</p>
-            <p>chuan_long@outlook.com</p>
+            <p>{{classification ? classification.name : 'Long Zhao Bi'}}</p>
+            <p>{{classification ? classification.description : 'chuan_long@outlook.com'}}</p>
           </div>
         </div>
         <div>
-          <a class="loozb-register">HOME</a>
+          <nuxt-link to="/">HOME</nuxt-link>
           <a class="loozb-register">ABOUT</a>
         </div>
       </div>
     </div>
   </div>
 </template>
-
+<script>
+  export default {
+    props: {
+      classification: {
+        type: Object
+      }
+    }
+  }
+</script>
 <style scoped>
   .loozb-nav {
     height:115px;

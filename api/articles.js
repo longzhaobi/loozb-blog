@@ -1,9 +1,21 @@
 var router = require('express').Router()
 var request = require('../request')
-
+var qs = require('qs')
 /* 获取文章列表 */
 router.get('/articles', function (req, res, next) {
-  request.get('/api/anon/articles').then(function({ data }) {
+  const params = {};
+
+  const {current, classification, keyword} = req.query;
+  if(current) {
+    params.current = current;
+  }
+  if(classification) {
+    params.classification = classification;
+  }
+  if(keyword) {
+    params.keyword = keyword
+  }
+  request.get(`/api/anon/articles?${qs.stringify(params)}`).then(function({ data }) {
     res.json(data)
   });
 })

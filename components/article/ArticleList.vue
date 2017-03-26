@@ -1,14 +1,17 @@
 <template>
   <div class="container loozb-content">
     <article-item v-for="article of page.data" :article = "article"/>
+    <Pagination :page="page"/>
   </div>
 </template>
 
 <script>
   import ArticleItem from '~components/article/ArticleItem'
+  import Pagination from '~components/Pagination'
   export default {
     components: {
-      ArticleItem
+      ArticleItem,
+      Pagination
     },
     props: {
       page: {
