@@ -2,13 +2,17 @@
   import NavPanel from '~components/NavPanel.vue'
   import ArticleList from '~components/article/ArticleList.vue'
   import axios from '~plugins/axios'
-
+  import qs from 'qs';
   import Classifications from '~components/Classifications'
   import LatelyComent from '~components/LatelyComent'
   import Message from '~components/Message'
   export default {
-    async data ({ params, error }) {
-      const articles = await axios.get(`/api/articles?classification=${params.id}`)
+    async data ({ params, error, query }) {
+      const param = {
+        classification: params.id,
+        ...query
+      }
+      const articles = await axios.get(`/api/articles?${qs.stringify(param)}`)
       const classifications = await axios.get('/api/classifications')
       if(articles.data.httpCode === 200 && classifications.data.httpCode === 200) {
         if(articles.data && classifications.data) {
@@ -41,7 +45,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8">
-          <ArticleList :page = "page"/>
+          <ArticleList :page = "page" :classificationId="classificationId"/>
         </div>
         <div class="col-md-4" style="margin-top:25px;">
           <Classifications :classifications="classifications" :classification="classification"/>

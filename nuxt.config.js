@@ -13,6 +13,11 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  router: {
+    middleware: 'user-agent'
+  },
+
+  loading: { color: '#3B8070' },
   /*
   ** Global CSS
   */

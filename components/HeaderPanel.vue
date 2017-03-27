@@ -3,8 +3,9 @@
     <div class="container">
       <div class="header-panel">
         <div class="left">
-          <a class="loozb-register">注册</a>
-          <a class="loozb-register">登录</a>
+          <nuxt-link to="/" class="loozb-register">首页</nuxt-link>
+          <nuxt-link to="/message" class="loozb-register">留言</nuxt-link>
+          <nuxt-link to="/about" class="loozb-register">关于</nuxt-link>
         </div>
         <div class="right">
           <a class="loozb-register" href="https://github.com/longzhaobi/loozb-blog" target="_blank"><i  style="font-size:20px;" class="icon icon-github"></i></a>
@@ -20,6 +21,7 @@
     width:100%;
     margin-top:0px;
     background-color: #3949AB;
+    /*background-color: #8666B8;*/
   }
   .header-panel {
     display: flex;

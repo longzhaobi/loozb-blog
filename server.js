@@ -1,7 +1,13 @@
 const Nuxt = require('nuxt')
-const app = require('express')()
+const express = require('express')
+const app = express()
+const bodyParser = require('body-parser');
 const host = process.env.HOST || '0.0.0.0'
 const port = process.env.PORT || 8081
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 app.set('port', port)
 

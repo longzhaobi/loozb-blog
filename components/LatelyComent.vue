@@ -3,39 +3,13 @@
     <div class="panel panel-default">
       <div class="panel-heading">最新评论</div>
       <div class="panel-body panel-comment">
-        <div class="comment">
+        <div class="comment" v-for="c in comments">
           <div class="content">
-            <div class="pull-right text-muted">2 个小时前</div>
-            <div><a href="###"><strong>Catouse</strong></a> <span class="text-muted">回复</span> <a href="###">张士超</a></div>
-            <div class="text">你到底把我家钥匙放哪里了...</div>
+            <div class="pull-right text-muted">{{c.ctime}}</div>
+            <div><a href="javascript:void(0)"><strong>{{c.reply}}</strong></a> <span v-show="c.byReply"> 回复 <a href="javascript:void(0)"><strong>{{c.byReply}}</strong></a></span></div>
+            <div class="text">{{c.content}}</div>
             <div class="actions">
-              <a href="##">回复</a>
-              <a href="##">编辑</a>
-              <a href="##">删除</a>
-            </div>
-          </div>
-        </div>
-        <div class="comment">
-          <div class="content">
-            <div class="pull-right text-muted">2 个小时前</div>
-            <div><a href="###"><strong>Catouse</strong></a> <span class="text-muted">回复</span> <a href="###">张士超</a></div>
-            <div class="text">你到底把我家钥匙放哪里了...</div>
-            <div class="actions">
-              <a href="##">回复</a>
-              <a href="##">编辑</a>
-              <a href="##">删除</a>
-            </div>
-          </div>
-        </div>
-        <div class="comment">
-          <div class="content">
-            <div class="pull-right text-muted">2 个小时前</div>
-            <div><a href="###"><strong>Catouse</strong></a> <span class="text-muted">回复</span> <a href="###">张士超</a></div>
-            <div class="text">你到底把我家钥匙放哪里了...</div>
-            <div class="actions">
-              <a href="##">回复</a>
-              <a href="##">编辑</a>
-              <a href="##">删除</a>
+              <nuxt-link :to="'articles/' + c.articleId_" class="text-muted">文章地址</nuxt-link>
             </div>
           </div>
         </div>
@@ -46,7 +20,7 @@
 
 <script>
   export default {
-
+    props: ['comments']
   }
 </script>
 

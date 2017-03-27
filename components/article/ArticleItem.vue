@@ -3,14 +3,15 @@
     <div class="items">
       <div class="item">
         <div class="item-heading">
-          <div class="pull-right label label-success" v-if="article.sort !== 0">置顶</div>
-          <div class="pull-right label label-success">Java</div>
-          <h4><nuxt-link :to="'articles/' + article.id_" class="text-muted">{{article.title}}</nuxt-link></h4>
+          <div class="pull-right label label-warning" v-if="article.sort > 0">置顶</div>
+          <div class="pull-right label label-success">{{article.classificationName}}</div>
+          <h4><nuxt-link :to="'/articles/' + article.id_" class="text-muted">{{article.title}}</nuxt-link></h4>
         </div>
         <div class="item-content">{{article.digest}}</div>
         <div class="item-footer">
           <a href="#" class="text-muted"><i class="icon-comments"></i> {{article.readNum}}</a> &nbsp; <span class="text-muted">{{article.ctime}}</span>
-          <p style="float:right;"><nuxt-link :to="'articles/' + article.id_" class="text-muted">阅读详情</nuxt-link></p>
+           &nbsp;作者: <span class="text-muted">{{article.author}}</span>
+          <p style="float:right;"><nuxt-link :to="'/articles/' + article.id_" class="text-muted">阅读详情</nuxt-link></p>
         </div>
       </div>
     </div>

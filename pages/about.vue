@@ -1,9 +1,12 @@
 <template>
+  <div>
+    <NavPanel />
     <section class="container my-article-panel">
       <ArticlePanel :article="article"/>
       <CommentInput :articleId="articleId"/>
       <CommentPanel :comments="comments" :current="current" :articleId="articleId"/>
     </section>
+  </div>
 </template>
 <script>
 import NavPanel from '~components/NavPanel.vue'
@@ -11,28 +14,24 @@ import ArticlePanel from '~components/article/ArticlePanel'
 import CommentPanel from '~components/comment/CommentPanel'
 import CommentInput from '~components/comment/CommentInput'
 import axios from '~plugins/axios'
-import utils from '../../utils'
+import utils from '../utils'
 export default {
   async data ({ params, error }) {
-    if(params.id) {
-      const { data } = await axios.get(`/api/articles/${params.id}`)
-      if(data.httpCode === 200) {
-        const article = data.data
-        if(article) {
-          article.content = utils.markdown(article.content)
-          return { article: article, articleId: params.id}
-        } else {
-          error({ statusCode: 404, message: '糟糕！没有找到这篇文章信息' })
-        }
+    const { data } = await axios.get(`/api/articles/846388720188416000`)
+    if(data.httpCode === 200) {
+      const article = data.data
+      if(article) {
+        article.content = utils.markdown(article.content)
+        return { article: article, articleId: article.id_}
       } else {
-        error({ statusCode: data.httpCode, message: data.msg })
+        error({ statusCode: 404, message: '糟糕！没有找到这篇文章信息' })
       }
     } else {
-      error({ statusCode: 500, message: '未传入文章编码，请检查地址输入是否有误' })
+      error({ statusCode: data.httpCode, message: data.msg })
     }
   },
   async fetch ({ store, params }) {
-    const { data } = await axios.get(`/api/comments?articleId=${params.id}`)
+    const { data } = await axios.get(`/api/comments?articleId=846388720188416000`)
     store.commit('queryCommentSuccess', {comments: data.data, current: data.current, size: data.size, total: data.total})
   },
   components: {

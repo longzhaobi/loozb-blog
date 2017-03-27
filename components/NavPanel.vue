@@ -10,10 +10,11 @@
             <p>{{classification ? classification.description : 'chuan_long@outlook.com'}}</p>
           </div>
         </div>
-        <div>
-          <nuxt-link to="/">HOME</nuxt-link>
-          <a class="loozb-register">ABOUT</a>
-        </div>
+        <!-- <div>
+          <nuxt-link to="/" class="loozb-register">首页</nuxt-link>
+          <nuxt-link to="/" class="loozb-register">留言</nuxt-link>
+          <nuxt-link to="/" class="loozb-register">关于</nuxt-link>
+        </div> -->
       </div>
     </div>
   </div>
@@ -32,17 +33,19 @@
     height:115px;
     width:100%;
     background-color: rgb(63,81,181);
+    /*background-color: #8670B8;*/
   }
 
   .nav-panel {
     display: flex;
-    align-items:center;
+    /*align-items:center;*/
+    padding-top:30px;
     justify-content: space-between;
   }
   .loozb-register {
     display: inline-block;
     height:100%;
-    width:50px;
+    width:35px;
     line-height: 115px;
     text-align: center;
     color:#fff;

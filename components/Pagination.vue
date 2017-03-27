@@ -1,9 +1,9 @@
 <template>
   <div class="my-pager">
     <ul class="pager pager-loose">
-      <li class="previous"><a href="your/nice/url">«</a></li>
-      <li v-for="(p, index) in Math.ceil(page.total/page.size)" :class="{active: page.current === index + 1}"><a href="your/nice/url">{{ index + 1 }}</a></li>
-      <li class="next"><a href="your/nice/url">»</a></li>
+      <li class="previous" :class="{disabled:!hasPre}"><a @click.stop="pageChange(page.current - 1)">«</a></li>
+      <li v-for="(p, index) in totalPage" :class="{active: page.current === index + 1}"><a @click.stop="pageChange(index + 1)">{{ index + 1 }}</a></li>
+      <li class="next" :class="{disabled:!hasNext}"><a @click.stop="pageChange(page.current + 1)">»</a></li>
     </ul>
   </div>
 
@@ -14,6 +14,22 @@
     props: {
       page: {
         required: true
+      }
+    },
+    computed: {
+      hasPre () {
+        return this.page.current > 1
+      },
+      hasNext () {
+        return this.page.total > this.page.current * this.page.size
+      },
+      totalPage () {
+        return Math.ceil(this.page.total / this.page.size);
+      }
+    },
+    methods: {
+      pageChange(current) {
+        this.$router.push({ query: { current }})
       }
     },
     mounted () {

@@ -11,7 +11,7 @@
         <dt>发表于：</dt>
         <dd>{{article.ctime}}</dd>
         <dd v-if="article.type === '2'"><a :href="article.originalUrl" target="_blank">原文地址</a></dd>
-        <dd class="pull-right"><span class="label label-success">HTML</span> <span class="label label-warning">网页设计</span> <span class="label label-info">W3C</span> <span class="label label-danger"><i class="icon-eye-open"></i> 235</span></dd>
+        <dd class="pull-right"><span class="label label-success">{{article.classificationName}}</span> <span class="label label-warning" v-if="article.sort > 0">置顶</span> <span class="label label-danger"><i class="icon-eye-open"></i> {{article.readNum}}</span></dd>
       </dl>
       <section class="abstract">
         <p><strong>摘要：</strong>{{article.digest}}</p>
@@ -20,6 +20,12 @@
     <section class="content">
       <div v-html="article.content"></div>
     </section>
+    <!-- <footer>
+     <ul class="pager pager-justify">
+       <li class="previous"><a target="_blank" href="https://zh.wikipedia.org/wiki/Category:HTML"><i class="icon-arrow-left"></i> HTML</a></li>
+       <li class="next disabled"><a target="_blank" href="https://zh.wikipedia.org/wiki/Category:W3C%E6%A0%87%E5%87%86">W3C 标准 <i class="icon-arrow-right"></i></a></li>
+     </ul>
+   </footer> -->
   </article>
 </template>
 
