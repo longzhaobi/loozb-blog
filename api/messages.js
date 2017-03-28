@@ -9,7 +9,6 @@ router.post('/messages', function (req, res, next) {
 })
 
 router.get('/messages', function (req, res, next) {
-  console.log(req);
   axios.request({url:`/api/anon/messages?${qs.stringify(req.query)}`}).then(function({ data }) {
     res.json(data)
   });
