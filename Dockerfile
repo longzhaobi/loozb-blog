@@ -14,6 +14,6 @@ COPY request.js /home/loozb-blog
 COPY nuxt.config.js /home/loozb-blog
 
 
-EXPOSE 8081
+EXPOSE 8080
 
 CMD ["npm", "start" ]
