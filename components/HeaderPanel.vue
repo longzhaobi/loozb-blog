@@ -20,8 +20,9 @@
     height:40px;
     width:100%;
     margin-top:0px;
-    background-color: #3949AB;
-    /*background-color: #8666B8;*/
+    box-shadow: 0 10px 10px rgba(0,0,0,.3);
+    /*background-color: #3949AB;*/
+    background-color: rgb(39,39,39);
   }
   .header-panel {
     display: flex;

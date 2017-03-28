@@ -32,7 +32,9 @@
   .loozb-nav {
     height:115px;
     width:100%;
-    background-color: rgb(63,81,181);
+    box-shadow: 0 10px 10px rgba(0,0,0,.3);
+    background-color: rgb(51,52,60);
+    /*background-color: rgb(63,81,181);*/
     /*background-color: #8670B8;*/
   }
 
