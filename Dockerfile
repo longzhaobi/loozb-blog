@@ -1,19 +1,19 @@
 FROM nuxt/node
 ENV NODE_PATH /usr/local/lib/node_modules
-RUN mkdir -p /home/loozb-blog/.nuxt
-RUN mkdir -p /home/loozb-blog/api
-WORKDIR /home/loozb-blog
+RUN mkdir -p /home/blog/.nuxt
+RUN mkdir -p /home/blog/api
+WORKDIR /home/blog
 
 #移动文件
-COPY .nuxt /home/loozb-blog/.nuxt
-COPY api /home/loozb-blog/api
-COPY package.json /home/loozb-blog
-COPY utils.js /home/loozb-blog
-COPY server.prod.js /home/loozb-blog
-COPY request.js /home/loozb-blog
-COPY nuxt.config.js /home/loozb-blog
+COPY .nuxt /home/blog/.nuxt
+COPY api /home/blog/api
+COPY package.json /home/blog
+COPY utils.js /home/blog
+COPY server.prod.js /home/blog
+COPY request.js /home/blog
+COPY nuxt.config.js /home/blog
 
 
 EXPOSE 8080
 
-CMD ["npm", "run", "start" ]
+CMD ["npm", "start" ]
