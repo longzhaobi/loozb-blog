@@ -12,14 +12,6 @@ html, body
   height:100%;
 }
 
-a, a:hover, a:focus, a:visited
-{
-  color: #41B883;
-  cursor:pointer;
-  text-decoration: none;
-}
-
-
 .page-enter-active, .page-leave-active
 {
   transition: opacity .5s
