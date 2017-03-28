@@ -16,4 +16,4 @@ COPY nuxt.config.js /home/loozb-blog
 
 EXPOSE 8080
 
-CMD ["npm", "start" ]
+CMD ["npm", "run", "start" ]
