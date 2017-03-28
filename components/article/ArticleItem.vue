@@ -5,7 +5,7 @@
         <div class="item-heading">
           <div class="pull-right label label-warning" v-if="article.sort > 0">置顶</div>
           <div class="pull-right label label-success">{{article.classificationName}}</div>
-          <h4><nuxt-link :to="'/articles/' + article.id_" class="text-muted">{{article.title}}</nuxt-link></h4>
+          <h4><a :href="'/articles/' + article.id_" class="text-muted" target="_blank">{{article.title}}</a></h4>
         </div>
         <div class="item-content">{{article.digest}}</div>
         <div class="item-footer">

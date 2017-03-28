@@ -1,18 +1,13 @@
-FROM nuxt/node
-ENV NODE_PATH /usr/local/lib/node_modules
-RUN mkdir -p /home/blog/.nuxt
-RUN mkdir -p /home/blog/api
+FROM node
+RUN mkdir -p /home/blog
 WORKDIR /home/blog
 
 #移动文件
-COPY .nuxt /home/blog/.nuxt
-COPY api /home/blog/api
-COPY package.json /home/blog
-COPY utils.js /home/blog
-COPY server.prod.js /home/blog
-COPY request.js /home/blog
-COPY nuxt.config.js /home/blog
+COPY . /home/blog
 
+RUN yarn install
+
+RUN npm run build
 
 EXPOSE 8080
 
