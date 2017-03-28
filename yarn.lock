@@ -1643,13 +1643,9 @@ es6-map@^0.1.3:
     es6-symbol "~3.1.1"
     event-emitter "~0.3.5"
 
-es6-promise@^3.0.2, es6-promise@^3.2.1:
+es6-promise@^3.0.2:
   version "3.3.1"
   resolved "http://registry.npm.taobao.org/es6-promise/download/es6-promise-3.3.1.tgz#a08cdde84ccdbf34d027a1451bc91d4bcd28a613"
-
-es6-promise@^4.1.0:
-  version "4.1.0"
-  resolved "http://registry.npm.taobao.org/es6-promise/download/es6-promise-4.1.0.tgz#dda03ca8f9f89bc597e689842929de7ba8cebdf0"
 
 es6-set@~0.1.5:
   version "0.1.5"
@@ -1840,13 +1836,6 @@ expand-range@^1.8.1:
   resolved "http://registry.npm.taobao.org/expand-range/download/expand-range-1.8.2.tgz#a299effd335fe2721ebae8e257ec79644fc85337"
   dependencies:
     fill-range "^2.1.0"
-
-express-http-proxy@^0.11.0:
-  version "0.11.0"
-  resolved "http://registry.npm.taobao.org/express-http-proxy/download/express-http-proxy-0.11.0.tgz#f2e6ba2e9e8677b1ba335375c3cae670d5a1bb0a"
-  dependencies:
-    es6-promise "^3.2.1"
-    raw-body "^2.1.7"
 
 express@^4.14.0, express@^4.14.1:
   version "4.15.2"
@@ -3743,7 +3732,7 @@ range-parser@^1.0.3, range-parser@~1.2.0:
   version "1.2.0"
   resolved "http://registry.npm.taobao.org/range-parser/download/range-parser-1.2.0.tgz#f49be6b487894ddc40dcc94a322f611092e00d5e"
 
-raw-body@^2.1.7, raw-body@~2.2.0:
+raw-body@~2.2.0:
   version "2.2.0"
   resolved "http://registry.npm.taobao.org/raw-body/download/raw-body-2.2.0.tgz#994976cf6a5096a41162840492f0bdc5d6e7fb96"
   dependencies:

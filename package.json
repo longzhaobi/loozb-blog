@@ -21,9 +21,7 @@
     "axios": "^0.15.3",
     "body-parser": "^1.17.1",
     "cross-env": "^3.1.4",
-    "es6-promise": "^4.1.0",
     "express": "^4.14.0",
-    "express-http-proxy": "^0.11.0",
     "highlightjs": "^9.10.0",
     "markdown-it": "^8.3.1",
     "nuxt": "latest"
