@@ -22,7 +22,7 @@
     margin-top:0px;
     box-shadow: 0 10px 10px rgba(0,0,0,.3);
     /*background-color: #3949AB;*/
-    background-color: rgb(39,39,39);
+    background-color: rgb(77,77,77);
   }
   .header-panel {
     display: flex;
