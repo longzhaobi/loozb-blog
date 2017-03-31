@@ -40,6 +40,13 @@
   padding-top:30px;
   color: #fff;
 }
+
+@media screen and (max-width: 800px) { /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
+  footer {
+    display:none;
+  }
+}
+
 .my-github {
   list-style: none;
   margin:0;

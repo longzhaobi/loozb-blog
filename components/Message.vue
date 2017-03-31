@@ -38,8 +38,6 @@
   .panel-tags span {
     margin-right:10px;
     margin-bottom:10px;
-    display:block;
-    float:left;
   }
 
 </style>

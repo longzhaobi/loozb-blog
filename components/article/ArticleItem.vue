@@ -11,7 +11,6 @@
         <div class="item-footer">
           <a href="#" class="text-muted"><i class="icon-comments"></i> {{article.readNum}}</a> &nbsp; <span class="text-muted">{{article.ctime}}</span>
            &nbsp;作者: <span class="text-muted">{{article.author}}</span>
-          <p style="float:right;"><nuxt-link :to="'/articles/' + article.id_" class="text-muted">阅读详情</nuxt-link></p>
         </div>
       </div>
     </div>
