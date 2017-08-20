@@ -64,7 +64,7 @@ footer {
 }
 
 .container {
-  padding-left:130px;
+  padding-left:100px;
 }
 
 .my-github {
