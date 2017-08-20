@@ -23,8 +23,8 @@
     width: 100%;
     margin-top: 0px;
     /* box-shadow: 0 10px 10px rgba(0, 0, 0, .3); */
-    /*background-color: #3949AB;*/
-    background-color: rgb(77, 77, 77);
+    background-color: #226039;
+    /* background-color: rgb(77, 77, 77); */
 }
 
 .header-panel {

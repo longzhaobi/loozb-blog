@@ -30,17 +30,13 @@
 </script>
 <style scoped>
   .loozb-nav {
-    height:115px;
+    height:180px;
     width:100%;
-    /*box-shadow: 0 5px 5px rgba(0,0,0,.3);*/
-    background-color: rgb(68,68,68);
-    /*background-color: rgb(63,81,181);*/
-    /*background-color: #8670B8;*/
+    background: #226039 url(../assets/img/bg.jpg) center 0 scroll no-repeat;
   }
 
   .nav-panel {
     display: flex;
-    /*align-items:center;*/
     padding-top:30px;
     justify-content: space-between;
   }
