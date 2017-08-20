@@ -4,7 +4,7 @@
       <div class="nav-panel">
         <div class="logo-panel">
           <img v-if="classification" :src="classification.url" class="img-rounded logo" alt="圆形图片">
-          <img v-else src="../assets/img/myself.jpg" class="img-rounded logo" alt="圆形图片">
+          <img v-else src="~/assets/img/myself.jpg" class="img-rounded logo" alt="圆形图片">
           <div class="logo-text">
             <p>{{classification ? classification.name : 'Long Zhao Bi'}}</p>
             <p>{{classification ? classification.description : 'chuan_long@outlook.com'}}</p>

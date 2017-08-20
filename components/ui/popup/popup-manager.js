@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import overlayOpt from './overlay'
-import {getDOM, getZIndex} from './utils'
+import { getDOM, getZIndex } from './utils'
 const Overlay = Vue.extend(overlayOpt)
 
 const PopupManager = {
   instances: [],
   overlay: false,
 
-  open (instance) {
+  open(instance) {
     if (!instance || this.instances.indexOf(instance) !== -1) return
     if (this.instances.length === 0) {
       this.showOverlay(instance.color, instance.opacity, instance.root)
@@ -18,7 +18,7 @@ const PopupManager = {
     dom.style.zIndex = getZIndex()
   },
 
-  close (instance) {
+  close(instance) {
     let index = this.instances.indexOf(instance)
     if (index === -1) return
     Vue.nextTick(() => {
@@ -30,20 +30,20 @@ const PopupManager = {
     })
   },
 
-  showOverlay (color, opacity, root) {
+  showOverlay(color, opacity, root) {
     //设置overlay组件基本属性，不设置则为默认值
     let overlay = this.overlay = new Overlay({
       el: document.createElement('div')
     })
     let dom = this.getShowDom(root)
-    if(dom == null) {
+    if (dom == null) {
       alert('错误，请检测root是否配置正确')
-      setTimeout(()=>{
+      setTimeout(() => {
         this.handlerOverlayClick()
-      },0)
+      }, 0)
       return
     }
-    if(root === 'body' || root === undefined) {
+    if (root === 'body' || root === undefined) {
       overlay.position = 'fixed'
     } else {
       overlay.position = 'static'//默认
@@ -58,14 +58,14 @@ const PopupManager = {
   },
 
   getShowDom(root) {
-    if(root === 'body' || root === undefined) {
+    if (root === 'body' || root === undefined) {
       return document.body
     } else {
       return document.getElementById(root)
     }
   },
 
-  closeOverlay (root) {
+  closeOverlay(root) {
     if (!this.overlay) return
     let dom = this.getShowDom(root)
     dom.style.overflow = this.overflow
@@ -76,14 +76,14 @@ const PopupManager = {
     })
   },
 
-  changeOverlayStyle () {
+  changeOverlayStyle() {
     if (!this.overlay || this.instances.length === 0) return
     const instance = this.instances[this.instances.length - 1]
     this.overlay.color = instance.color
     this.overlay.opacity = instance.opacity
   },
 
-  handlerOverlayClick () {
+  handlerOverlayClick() {
     if (this.instances.length === 0) return
     const instance = this.instances[this.instances.length - 1]
     if (instance.overlayClick) {

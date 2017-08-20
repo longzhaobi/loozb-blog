@@ -1,8 +1,9 @@
 <template>
-  <div class="overlay" @click="handlerClick" @touchmove="prevent" :style="style" transition="overlay-fade"></div>
+  <div class="overlay" @click="handlerClick" @touchmove="prevent" :style="style" transition="overlay-fade">
+  </div>
 </template>
 <script>
-import {getZIndex} from './utils'
+import { getZIndex } from './utils'
 export default {
   props: {
     position: {
@@ -21,13 +22,13 @@ export default {
       default: '#000'
     }
   },
-  data () {
+  data() {
     return {
       zIndex: getZIndex()
     }
   },
   computed: {
-    style () {
+    style() {
       return {
         'opacity': this.opacity,
         'background-color': this.color,
@@ -37,11 +38,11 @@ export default {
     }
   },
   methods: {
-    prevent (event) {
+    prevent(event) {
       event.preventDefault()
       event.stopPropagation()
     },
-    handlerClick () {
+    handlerClick() {
       if (this.onClick) {
         this.onClick()
       }
@@ -55,8 +56,8 @@ export default {
   right: 0;
   top: 0;
   bottom: 0;
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   background-color: #000;
   opacity: .4;
   z-index: 1000;

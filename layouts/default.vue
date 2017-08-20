@@ -2,7 +2,7 @@
   <div class="main">
     <div class="wrap">
       <div class="min">
-        <header-panel/>
+        <MyHeader/>
         <nuxt/>
       </div>
     </div>
@@ -11,27 +11,22 @@
 </template>
 
 <script>
-import MyFooter from '~components/Footer.vue'
-import HeaderPanel from '~components/HeaderPanel.vue'
-
+import MyFooter from '~/components/Footer.vue'
+import MyHeader from '~/components/Layout/Header.vue'
 export default {
   components: {
     MyFooter,
-    HeaderPanel
+    MyHeader
   }
 }
 </script>
 
 <style>
 .main {
-  height:100%;
-}
-.wrap{
-    min-height: 100%;
+  height: 100vh;
 }
 
-.min{
-    /*padding-bottom: 360px;*/
+.wrap {
+  min-height: 100%;
 }
-
 </style>

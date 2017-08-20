@@ -1,13 +1,13 @@
 <template>
   <div class="container loozb-content">
-    <article-item v-for="article of page.data" :article = "article"/>
+    <ArticleItem v-for="article of page.data" :key="article.id_" :article = "article"/>
     <Pagination :page="page"/>
   </div>
 </template>
 
 <script>
-  import ArticleItem from '~components/article/ArticleItem'
-  import Pagination from '~components/Pagination'
+  import ArticleItem from '~/components/article/ArticleItem'
+  import Pagination from '~/components/Pagination'
   export default {
     components: {
       ArticleItem,

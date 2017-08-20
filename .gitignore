@@ -9,4 +9,6 @@ npm-debug.log
 
 # Nuxt generate
 dist
-/server.prod.js
+
+# Backpack build
+build

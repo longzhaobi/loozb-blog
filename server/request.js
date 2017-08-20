@@ -5,7 +5,7 @@ const dev = !(process.env.NODE_ENV === 'production')
 let options = {};
 
 if(dev) {
-  options.baseURL = 'http://localhost:8088'
+  options.baseURL = 'http://api.loozb.com'
 } else {
   options.baseURL = 'http://api.loozb.com'
 }

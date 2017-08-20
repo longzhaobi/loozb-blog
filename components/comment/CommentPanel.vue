@@ -1,9 +1,18 @@
 <template>
   <div>
-    <div class="comment" v-for="c in comments">
+    <div class="comment" v-for="c in comments" :key="c.id_">
       <div class="content">
         <div class="pull-right text-muted">{{c.ctime}}</div>
-        <div><a href="javascript:void(0)"><strong>{{c.reply}}</strong></a> <span v-show="c.byReply"> 回复 <a href="javascript:void(0)"><strong>{{c.byReply}}</strong></a></span></div>
+        <div>
+          <a href="javascript:void(0)">
+            <strong>{{c.reply}}</strong>
+          </a>
+          <span v-show="c.byReply"> 回复
+            <a href="javascript:void(0)">
+              <strong>{{c.byReply}}</strong>
+            </a>
+          </span>
+        </div>
         <div class="text">{{c.content}}</div>
         <div class="actions">
           <a @click.stop="replyComment(c.reply)">回复</a>
@@ -17,48 +26,49 @@
 </template>
 
 <script>
-  export default {
-    methods: {
-      queryMore () {
-        this.$store.dispatch({type: 'queryMore', payload:{current: this.current + 1, articleId: this.articleId }});
-      },
-      replyComment (byReply) {
-        this.$store.commit('changeByReply', byReply)
+export default {
+  methods: {
+    queryMore() {
+      this.$store.dispatch({ type: 'queryMore', payload: { current: this.current + 1, articleId: this.articleId } });
+    },
+    replyComment(byReply) {
+      this.$store.commit('changeByReply', byReply)
+    }
+  },
+  computed: {
+    isMore() {
+      return this.current < Math.ceil(this.$store.state.commentTotal / 5)
+    }
+  },
+  props: {
+    comments: {
+      type: Array,
+      default() {
+        return []
       }
     },
-    computed: {
-      isMore () {
-        return this.current < Math.ceil(this.$store.state.commentTotal / 5)
+    current: {
+      type: Number,
+      default() {
+        return 1
       }
     },
-    props: {
-      comments: {
-        type: Array,
-        default () {
-          return []
-        }
-      },
-      current: {
-        type:Number,
-        default () {
-          return 1
-        }
-      },
-      articleId: {
-        type: String
-      }
+    articleId: {
+      type: String
     }
   }
+}
 </script>
 
 <style scoped>
-  .comment {
-    margin:20px;
-    border-width:1px;
-  }
-  .comment-footer {
-    width:100%;
-    text-align: center;
-    height:30px;
-  }
+.comment {
+  margin: 20px;
+  border-width: 1px;
+}
+
+.comment-footer {
+  width: 100%;
+  text-align: center;
+  height: 30px;
+}
 </style>

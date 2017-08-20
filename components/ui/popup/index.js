@@ -24,7 +24,7 @@ export default {
     }
   },
   watch: {
-    show (val) {
+    show(val) {
       if (val && this.overlay) {
         PopupManager.open(this)
       } else {
@@ -32,7 +32,7 @@ export default {
       }
     }
   },
-  beforeDestroy () {
+  beforeDestroy() {
     PopupManager.close(this)
   }
 }

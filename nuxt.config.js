@@ -13,19 +13,33 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  router: {
-    middleware: 'user-agent'
-  },
+
+  // router: {
+  //   middleware: 'user-agent'
+  // },
 
   loading: { color: '#3B8070' },
   /*
   ** Global CSS
   */
-  css: ['~assets/css/main.css', '~assets/css/zui.css'],
+  css: ['~/assets/css/main.css', '~/assets/css/zui.css'],
   /*
   ** Add axios globally
   */
   build: {
-    vendor: ['axios']
+    vendor: ['axios'],
+    /*
+    ** Run ESLINT on save
+    */
+    // extend (config, ctx) {
+    //   if (ctx.isClient) {
+    //     config.module.rules.push({
+    //       enforce: 'pre',
+    //       test: /\.(js|vue)$/,
+    //       loader: 'eslint-loader',
+    //       exclude: /(node_modules)/
+    //     })
+    //   }
+    // }
   }
 }
