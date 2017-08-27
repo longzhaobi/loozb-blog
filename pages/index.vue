@@ -12,19 +12,14 @@ export default {
     const classifications = await axios.get('/api/classifications')
     const comments = await axios.get(`/api/comments`)
     const messages = await axios.get(`/api/messages`)
-    if (articles && articles.status === 200) {
-      return { articles: articles.data, classifications: classifications.data, comments: comments.data, messages: messages.data }
-    } else {
-      error({ statusCode: 404, message: '糟糕！获取文章列表数据失败' })
-    }
-    if (articles.status === 200 && classifications.status === 200 && comments.status === 200 && messages.status === 200) {
+    if (articles.data.httpCode === 200 && classifications.data.httpCode === 200 && comments.data.httpCode === 200 && messages.data.httpCode === 200) {
       if (articles.data.data) {
-        return { articles: articles.data, classifications: classifications.data, comments: comments.data, messages: messages.data }
+        return { articles: articles.data, classifications: classifications.data.data, comments: comments.data.data, messages: messages.data.data }
       } else {
         error({ statusCode: 404, message: '糟糕！获取文章列表数据失败' })
       }
     } else {
-      if (articles.status !== 200) {
+      if (articles.data.httpCode !== 200) {
         error({ statusCode: articles.data.httpCode, message: articles.data.msg })
       } else {
         error({ statusCode: classifications.data.httpCode, message: classifications.data.msg })

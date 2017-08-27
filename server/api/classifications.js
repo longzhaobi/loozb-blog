@@ -1,15 +1,10 @@
 var router = require('express').Router()
-var db = require("../db");
+var request = require('../request')
 /* 获取文章列表 */
 router.get('/classifications', function (req, res, next) {
-  let sql = "select * from tb_classification where available='1'"
-  db.query(sql, [], function (error, rows, fields) {
-    if (error) {
-      res.json(500);
-    } else {
-      res.json(rows);
-    }
-  })
+  request.get('/anon/all/classifications').then(function({ data }) {
+    res.json(data)
+  });
 })
 
 export default router;

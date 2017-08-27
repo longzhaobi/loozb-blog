@@ -10,8 +10,8 @@
         <dd>{{article.author}}</dd>
         <dt>发表于：</dt>
         <dd>{{article.ctime}}</dd>
-        <dd v-if="article.type === '2'"><a :href="article.original_url" target="_blank">原文地址</a></dd>
-        <dd class="pull-right"><span class="label label-success">{{article.classification}}</span> <span class="label label-warning" v-if="article.sort > 0">置顶</span> <span class="label label-danger"><i class="icon-eye-open"></i> {{article.read_num}}</span></dd>
+        <dd v-if="article.type === '2'"><a :href="article.originalUrl" target="_blank">原文地址</a></dd>
+        <dd class="pull-right"><span class="label label-success">{{article.classificationName}}</span> <span class="label label-warning" v-if="article.sort > 0">置顶</span> <span class="label label-danger"><i class="icon-eye-open"></i> {{article.readNum}}</span></dd>
       </dl>
       <section class="abstract">
         <p><strong>摘要：</strong>{{article.digest}}</p>

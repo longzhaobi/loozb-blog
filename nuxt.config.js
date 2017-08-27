@@ -23,6 +23,7 @@ module.exports = {
   ** Global CSS
   */
   css: ['~/assets/css/main.css', '~/assets/css/zui.css'],
+
   /*
   ** Add axios globally
   */

@@ -17,7 +17,7 @@ export default {
     if (params.id) {
       const response = await axios.get(`/api/articles/${params.id}`)
       if (response.status === 200) {
-        const article = response.data
+        const article = response.data.data
         if (article) {
           article.content = utils.markdown(article.content)
           return { article: article, articleId: params.id }
@@ -33,8 +33,9 @@ export default {
   },
   async fetch({ store, params }) {
     const response = await axios.get(`/api/comments?articleId=${params.id}`)
+    console.log(response)
     const comment = response.data
-    store.commit('queryCommentSuccess', { comments: comment.rows, current: comment.current, size: 20, total: comment.total })
+    store.commit('queryCommentSuccess', { comments: comment.data, current: comment.current, size: 20, total: comment.total })
   },
   components: {
     ArticlePanel,
@@ -61,10 +62,8 @@ export default {
 <style scoped>
 .my-article-panel {
   background-color: #fff;
-  margin-top: 30px;
+  margin-top: 0px;
   max-width: 800px;
   margin-bottom: 30px;
 }
-
-.my-article {}
 </style>

@@ -19,15 +19,12 @@ export default {
       required: true
     }
   },
-  mounted () {
-    console.log(this.articles)
-  },
   computed: {
     rows() {
-      return this.articles.rows
+      return this.articles.data
     },
     page() {
-      return { current: this.articles.current, total: this.articles.total, size: 20 }
+      return { current: this.articles.current, total: this.articles.total, size: this.articles.size }
     }
   }
 }

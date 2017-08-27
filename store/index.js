@@ -41,10 +41,10 @@ const store = () => new Vuex.Store({
   actions: {
     //评论
     async handleReply({ state, commit }, { comment }) {
-      const response = await axios.request({ method: 'post', url: '/api/comments', data: qs.stringify(comment) })
-      if (response.status === 200) {
+      const { data } = await axios.request({ method: 'post', url: '/api/comments', data: qs.stringify(comment) })
+      if (data.httpCode === 200) {
         const { comments=[] } = state
-        comments.splice(0, 0, response.data)
+        comments.splice(0, 0, data.comment)
         commit('queryCommentSuccess', { comments, current: state.commentCurrent, total: state.commentTotal + 1 })
       }
       return response
@@ -62,8 +62,9 @@ const store = () => new Vuex.Store({
     async handleReplyMessage({ state, commit }, { message }) {
       const { data } = await axios.request({ method: 'post', url: '/api/messages', data: qs.stringify(message) })
       if (data.httpCode === 200) {
+        console.log(data)
         const messages = state.messages
-        messages.splice(0, 0, data.tbMessage)
+        messages.splice(0, 0, data.message)
         commit('queryMessageSuccess', { messages, current: state.messageCurrent, total: state.messageTotal + 1 })
       }
       return data

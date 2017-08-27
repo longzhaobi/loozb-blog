@@ -4,7 +4,7 @@
       <div class="item">
         <div class="item-heading">
           <div class="pull-right label label-warning" v-if="article.sort > 0">置顶</div>
-          <div class="pull-right label label-success">{{article.classification}}</div>
+          <div class="pull-right label label-success">{{article.classificationName}}</div>
           <h4>
             <a :href="'/articles/' + article.id" class="text-muted my-title" target="_blank">{{article.title}}</a>
           </h4>
@@ -17,7 +17,7 @@
         </div>
         <div class="item-footer">
           <a href="#" class="text-muted">
-            <i class="icon-comments"></i> {{article.read_num}}</a> &nbsp;
+            <i class="icon-comments"></i> {{article.readNum}}</a> &nbsp;
           <span class="text-muted">{{article.ctime}}</span>
           &nbsp;作者:
           <span class="text-muted">{{article.author}}</span>

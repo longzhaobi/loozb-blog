@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="comment" v-for="c in messages" :key="c.id_">
+    <div class="comment" v-for="c in messages" :key="c.id">
       <div class="content">
         <div class="pull-right text-muted">{{c.ctime}}</div>
         <div>
