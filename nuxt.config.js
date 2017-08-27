@@ -14,9 +14,9 @@ module.exports = {
     ]
   },
 
-  // router: {
-  //   middleware: 'user-agent'
-  // },
+  router: {
+    middleware: 'user-agent'
+  },
 
   loading: { color: '#3B8070' },
   /*

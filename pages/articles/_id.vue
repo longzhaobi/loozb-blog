@@ -15,9 +15,9 @@ import utils from '../../utils'
 export default {
   async asyncData({ params, error }) {
     if (params.id) {
-      const { data } = await axios.get(`/api/articles/${params.id}`)
-      if (data.httpCode === 200) {
-        const article = data.data
+      const response = await axios.get(`/api/articles/${params.id}`)
+      if (response.status === 200) {
+        const article = response.data
         if (article) {
           article.content = utils.markdown(article.content)
           return { article: article, articleId: params.id }
@@ -32,8 +32,9 @@ export default {
     }
   },
   async fetch({ store, params }) {
-    const { data } = await axios.get(`/api/comments?articleId=${params.id}`)
-    store.commit('queryCommentSuccess', { comments: data.data, current: data.current, size: data.size, total: data.total })
+    const response = await axios.get(`/api/comments?articleId=${params.id}`)
+    const comment = response.data
+    store.commit('queryCommentSuccess', { comments: comment.rows, current: comment.current, size: 20, total: comment.total })
   },
   components: {
     ArticlePanel,

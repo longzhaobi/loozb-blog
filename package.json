@@ -14,12 +14,21 @@
   "dependencies": {
     "axios": "^0.16.2",
     "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
     "cross-env": "^5.0.1",
+    "csurf": "^1.9.0",
+    "debug": "^3.0.0",
+    "ejs": "^2.5.7",
+    "es6-uuid": "^1.0.1",
     "express": "^4.15.3",
     "highlightjs": "^9.10.0",
     "markdown-it": "^8.3.2",
+    "morgan": "^1.8.2",
+    "mysql": "^2.14.1",
     "nuxt": "^1.0.0-rc4",
-    "source-map-support": "^0.4.15"
+    "serve-favicon": "^2.4.3",
+    "source-map-support": "^0.4.15",
+    "xss": "^0.3.3"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",

@@ -2,7 +2,7 @@
   <div class="loozb-nav">
     <div class="container">
       <div class="nav-panel">
-        <div class="logo-panel">
+        <div class="logo-panel" v-show="show">
           <img v-if="classification" :src="classification.url" class="img-rounded logo" alt="圆形图片">
           <img v-else src="~/assets/img/myself.jpg" class="img-rounded logo" alt="圆形图片">
           <div class="logo-text">
@@ -24,6 +24,10 @@
     props: {
       classification: {
         type: Object
+      },
+      show: {
+        type:Boolean,
+        default: true
       }
     }
   }

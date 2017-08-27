@@ -52,7 +52,7 @@ export default {
       let result = confirm("确定发表评论吗？")
       if (result) {
         this.$store.dispatch({ type: 'handleReply', comment: { ...this.comment, articleId: this.articleId, byReply: this.byReply } }).then((data) => {
-          if (data.httpCode === 200) {
+          if (data.status === 200) {
             this.comment = { content: '', reply: '', email: '' }
             this.cancelReply()
           } else {

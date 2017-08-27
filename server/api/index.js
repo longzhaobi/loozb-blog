@@ -1,8 +1,13 @@
 var router = require('express').Router()
 
+import article from './articles';
+import classification from './classifications';
+import comment from './comments';
+import message from './messages';
+
 // 文章相关路由
-router.use(require('./articles'))
-router.use(require('./classifications'))
-router.use(require('./comments'))
-router.use(require('./messages'))
-module.exports = router
+router.use(article)
+router.use(classification)
+router.use(comment)
+router.use(message)
+export default router;

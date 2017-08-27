@@ -1,30 +1,29 @@
 var router = require('express').Router()
-var request = require('../request')
-var qs = require('qs')
+
+import article from '../model/article';
+
+// const article = new Article();
+
 /* 获取文章列表 */
 router.get('/articles', function (req, res, next) {
-  const params = {};
-
-  const {current, classification, keyword} = req.query;
-  if(current) {
-    params.current = current;
-  }
-  if(classification) {
-    params.classification = classification;
-  }
-  if(keyword) {
-    params.keyword = keyword
-  }
-  request.get(`/api/anon/articles?${qs.stringify(params)}`).then(function({ data }) {
-    res.json(data)
-  });
+  article.query(req, function (error, rows, fields) {
+    if (error) {
+      res.json(500);
+    } else {
+      res.json(rows);
+    }
+  })
 })
 
 /* 获取文章详情 */
 router.get('/articles/:id', function (req, res, next) {
-  request.get(`/api/anon/articles/${req.params.id}`).then(function( { data }) {
-    res.json(data)
-  });
+  article.queryById(req, (error, rows, fields) => {
+    if (error) {
+      res.json(500);
+    } else {
+      res.json(rows);
+    }
+  })
 })
 
-module.exports = router
+export default router;

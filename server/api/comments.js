@@ -1,17 +1,27 @@
 var router = require('express').Router()
-var axios = require('../request')
 var qs = require('qs')
+
+import comment from '../model/comment';
+
 /* 获取文章列表 */
 router.post('/comments', function (req, res, next) {
-  axios.request({url:'/api/anon/comments', data:qs.stringify(req.body), method:'post'}).then(function({ data }) {
-    res.json(data)
-  });
+  comment.insert(req, (error, rows, fields) => {
+    if(error) {
+      res.json(error)
+    } else {
+      res.json(rows)
+    }
+  })
 })
 
 router.get('/comments', function (req, res, next) {
-  axios.request({url:`/api/anon/comments?${qs.stringify(req.query)}`}).then(function({ data }) {
-    res.json(data)
-  });
+  comment.query(req, function (error, rows, fields) {
+    if (error) {
+      res.json(500);
+    } else {
+      res.json(rows);
+    }
+  })
 })
 
-module.exports = router
+export default router;

@@ -1,6 +1,5 @@
 <script>
   export default {
-    layout:null
   }
 </script>
 <template>
