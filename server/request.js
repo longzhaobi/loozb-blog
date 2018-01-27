@@ -3,7 +3,6 @@ const axios = require('axios');
 const dev = !(process.env.NODE_ENV === 'production')
 
 let options = {};
-console.log(dev)
 if(dev) {
   options.baseURL = 'http://localhost:1088'
 } else {
